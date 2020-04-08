@@ -11,13 +11,15 @@ import logoImg from "../../assets/logo.svg";
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
 
-  const ongName = localStorage.getItem("ongName");
   const ongId = localStorage.getItem("ongId");
+  const ongName = localStorage.getItem("ongName");
 
   useEffect(() => {
-    api.get("profile", { Headers: { Authorization: ongId } }).then(response => {
-      setIncidents(response.data);
-    });
+    api
+      .get("profile", { headers: { Authorization: ongId } })
+      .then((response) => {
+        setIncidents(response.data);
+      });
   }, [ongId]);
 
   return (
@@ -37,7 +39,7 @@ export default function Profile() {
       <h1>Casos cadastrados</h1>
 
       <ul>
-        {incidents.map(incident => (
+        {incidents.map((incident) => (
           <li key={incident.id}>
             <strong>CASO:</strong>
             <p>{incident.title}</p>
