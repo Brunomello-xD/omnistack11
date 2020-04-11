@@ -29,7 +29,7 @@ export default function Incidents() {
       </Text>
 
       <FlatList
-        data={[1, 2, 3]}
+        data={[1, 2, 3, 4, 5, 6, 7]}
         style={styles.incidentsList}
         showsVerticalScrollIndicator={false}
         keyExtractor={(incident) => String(incident)}
